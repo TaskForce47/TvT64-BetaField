@@ -1,0 +1,120 @@
+//-------------------------------------------Mission Loading Info---------------------------------------------------------//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Mission Header
+class Header
+{
+	gameType = SC;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+onLoadName = "TF47 Battlefield";
+onLoadMission = "join task-force47.de or ts3.armadev.de";
+author = "Willard and John Hunter";
+loadScreen = "loading.paa";
+overviewPicture = "loading.paa";
+
+//-------------------------------------------Mission Settings---------------------------------------------------------//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+enableDebugConsole = 0;
+
+respawn = 3;
+respawndelay = 5;
+respawnOnStart = 1;
+
+disabledAI = 1;
+
+corpseManagerMode = 1;
+
+corpseLimit = 1;
+corpseRemovalMinTime = 1; 					//seconds
+corpseRemovalMaxTime = 2; 					//seconds
+
+wreckLimit = 1;
+wreckRemovalMinTime = 1; 						//seconds
+wreckRemovalMaxTime = 2; 						//seconds
+
+disableChannels[]={0,2,4,5,6}; //0 = Global, 1 = Side, 2 = Command, 3 = Group, 4 = Vehicle, 5 = Direct, 6 = System
+
+
+//-------------------------------------------Mission Start Parameter---------------------------------------------------------//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+class CfgFunctions
+{
+	#include "GUI\Functions.hpp"
+	class killfeed {
+		tag = "kill";
+		class functions {
+			file = "killfeed\functions";
+			class killfeedMain {};
+			class killfeedCompile {};
+			class killfeedType {};
+			class killfeedRender {};
+		};
+	};
+};
+
+#include "killfeed\dialogs\common.hpp"
+#include "GUI\Dialogs.hpp"
+
+class RscTitles {
+    #include "killfeed\dialogs\titles.hpp"
+};
+
+//-------------------------------------------Ingame Parameter---------------------------------------------------------//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//class Params
+//{
+//	#define DAYTIMEHOUR_DEFAULT	12 //Can be any integer between 0 and 23
+//	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
+//	
+//	#define TICKETS_DEFAULT 1000
+//	#define TICKETS_MIN	1000
+//	#define TICKETS_MAX	11000
+//	#include "\a3\functions_f\Params\paramRespawnTickets.hpp"
+//
+//	#define WEATHER_DEFAULT	0 //Can be 0 (sunny), 25, 50, 75 or 100 (storm))
+//	#include "\a3\functions_f\Params\paramWeather.hpp"
+//	
+//	#define COUNTDOWN_MIN 1800
+//	#define COUNTDOWN_MAX 10800
+//	#define COUNTDOWN_DEFAULT	-1
+//	#include "\a3\functions_f\Params\paramCountdown.hpp"
+//	
+//}; 
+//-------------------------------------------Mission Loadouts---------------------------------------------------------//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ class CfgRoles
+ {
+      class Light
+      {
+           displayName = "Light";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+	  
+	  class Heavy
+      {
+           displayName = "Heavy";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+	  
+	  class Support
+      {
+           displayName = "Support";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+	  
+	  class Command
+      {
+           displayName = "Command";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+ };
+
+class CfgRespawnInventory
+{
+#include "opfor.hpp"
+#include "blufor.hpp"
+};
