@@ -127,7 +127,7 @@ airActOpfor = 0;
 
 airOpfor = [
 	["O_Heli_Transport_04_covered_F", 75],
-	["O_Heli_Light_02_unarmed_F", 50],
+	["O_Heli_Light_02_unarmed_F", 50]
 ];
 
 ccl_airOpfor = ["airActOpfor","airMaxOpfor", "airOpfor", east];
