@@ -61,4 +61,7 @@ _nul = [[_dialog]] spawn tf47_ccl_buy_fnc_onLoadBuy;
 
 // add eventhandler which decreases the actual vehicle count
 _veh setVariable ["tf47_ccl_buy_actString", _actString];
-_veh addEventHandler ["Killed", {_veh = (_this select 0); _actString = _veh getVariable ["tf47_ccl_buy_actString",""]; call compileFinal format["%1 = %1 - 1; publicVariable '%1';",_actString]; } ];
+_eventHandleId = _veh addEventHandler ["Killed", {_veh = (_this select 0); _actString = _veh getVariable ["tf47_ccl_buy_actString",""]; call compileFinal format["%1 = %1 - 1; publicVariable '%1';",_actString]; } ];
+
+// add respawn action
+[_veh, _eventHandleId, _side, _tickets, _actString] remoteExec ["tf47_ccl_buy_fnc_respawnAction", _side, true];

@@ -6,5 +6,6 @@ class tf47_ccl_buy {
 		class buyConfigRHS;
 		class buyVehicle;
 		class stringReplace;
+        class respawnAction;
 	};
 };
