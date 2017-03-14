@@ -64,8 +64,15 @@ class RscTitles {
 
 //-------------------------------------------Ingame Parameter---------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//class Params
-//{
+class Params
+{
+    class tf47_betafield_faction
+    {
+        title = "Fraktionen";
+        values[] = {0,1};
+        texts[] = {"Vanilla", "RHS"};
+        default = 0;
+    }
 //	#define DAYTIMEHOUR_DEFAULT	12 //Can be any integer between 0 and 23
 //	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 //	
@@ -82,7 +89,7 @@ class RscTitles {
 //	#define COUNTDOWN_DEFAULT	-1
 //	#include "\a3\functions_f\Params\paramCountdown.hpp"
 //	
-//}; 
+}; 
 //-------------------------------------------Mission Loadouts---------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -115,6 +122,5 @@ class RscTitles {
 
 class CfgRespawnInventory
 {
-#include "opfor.hpp"
-#include "blufor.hpp"
+    #include "factionConfig\loadouts.hpp"
 };

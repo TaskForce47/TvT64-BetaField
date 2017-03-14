@@ -1,28 +1,24 @@
-[west, ["WEST1",32,32]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST2",6,32]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST3",6,32]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST4",3,3]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST5",3,3]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST6",3,3]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST7",8,16]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST8",4,16]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST9",4,16]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST10",9,13]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST11",3,13]] call BIS_fnc_addRespawnInventory;
-[west, ["WEST12",1,13]] call BIS_fnc_addRespawnInventory;
 
-[east, ["EAST1",32,32]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST2",8,32]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST3",8,32]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST4",3,6]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST5",3,6]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST6",3,6]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST7",8,16]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST8",4,16]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST9",4,16]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST10",9,13]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST11",3,13]] call BIS_fnc_addRespawnInventory;
-[east, ["EAST12",1,13]] call BIS_fnc_addRespawnInventory;
+_faction = ["tf47_betafield_faction",0] call BIS_fnc_getParamValue;
+
+
+_factionString = switch (_faction) do {
+    case 0: {"van"};
+    case 1: {"rhs"};
+    default {"van"};
+};
+_weirdArrays = [[32, 32], [6, 32], [6, 32], [3, 3], [3, 3], 
+    [3, 3], [8, 16], [4, 16], [4, 16], [9, 13], [3, 13], [1, 13]];
+
+_max = 12;
+
+for "_i" from 1 to _max do {
+    [west, ["blufor_" + _factionString + "_" + str (_i)] + (_weirdArrays select 0)] call BIS_fnc_addRespawnInventory;
+};
+
+for "_i" from 1 to _max do {
+    [east, ["opfor_" + _factionString + "_" + str (_i)] + (_weirdArrays select 0)] call BIS_fnc_addRespawnInventory;
+};    
 
 [] spawn {
 	sleep 5;
