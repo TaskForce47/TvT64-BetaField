@@ -48,10 +48,6 @@ if (_act >= _max) exitWith { hint "Too many vehicles spawned!"; };
 
 // get and check tickets
 _currentTickets = [_side, 0] call BIS_fnc_respawnTickets;
-diag_log "debug";
-diag_log _currentTickets;
-diag_log _tickets;
-diag_log "debug";
 if(_currentTickets <= _tickets) exitWith { hint "Not enough tickets!"; };
 
 // increase actual number of vehicles
