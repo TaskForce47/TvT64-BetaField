@@ -46,6 +46,14 @@ _side = call compileFinal (_varArray select 3);
 // exit if too many vehicles are on the field
 if (_act >= _max) exitWith { hint "Too many vehicles spawned!"; };
 
+// get and check tickets
+_currentTickets = [_side, 0] call BIS_fnc_respawnTickets;
+diag_log "debug";
+diag_log _currentTickets;
+diag_log _tickets;
+diag_log "debug";
+if(_currentTickets <= _tickets) exitWith { hint "Not enough tickets!"; };
+
 // increase actual number of vehicles
 _actString = (_varArray select 0);
 call compileFinal format["%1 = %1 + 1; publicVariable '%1';",_actString];
